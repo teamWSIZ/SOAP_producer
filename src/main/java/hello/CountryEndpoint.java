@@ -1,5 +1,6 @@
 package hello;
 
+import io.spring.guides.gs_producing_web_service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
@@ -8,9 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import io.spring.guides.gs_producing_web_service.GetCountryRequest;
-import io.spring.guides.gs_producing_web_service.GetCountryResponse;
-
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -33,6 +32,17 @@ public class CountryEndpoint {
 		GetCountryResponse response = new GetCountryResponse();
 		response.setCountry(countryRepository.findCountry(request.getName()));
         queries.incrementAndGet();
+        return response;
+	}
+
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getStudentRequest")
+	@ResponsePayload
+	public GetStudentResponse getStudent(@RequestPayload GetStudentRequest request) {
+        GetStudentResponse response = new GetStudentResponse();
+        Student s = new Student();
+        s.setName(request.getName());
+        s.setPesel(UUID.randomUUID().toString());
+        response.setSss(s);
         return response;
 	}
 

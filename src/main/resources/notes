@@ -1,6 +1,12 @@
 
 
-
-Assumption: webserver visible at:
+#Web service will be visible at:
 http://localhost:8080/ws/countries.wsdl
 
+
+#Adding new model class:
+-> /resources/countries.xsd --> <xs:complexType name="student">
+-> mvn clean compile
+
+#Adding method:
+-> changing .xsd adding XXRequest and XXResponse

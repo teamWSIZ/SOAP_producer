@@ -15,18 +15,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for city complex type.
+ * <p>Java class for student complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="city">
+ * &lt;complexType name="student">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="ranking" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,17 +35,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "city", propOrder = {
+@XmlType(name = "student", propOrder = {
     "name",
-    "population",
-    "ranking"
+    "pesel"
 })
-public class City {
+public class Student {
 
     @XmlElement(required = true)
     protected String name;
-    protected int population;
-    protected long ranking;
+    @XmlElement(required = true)
+    protected String pesel;
 
     /**
      * Gets the value of the name property.
@@ -73,35 +71,27 @@ public class City {
     }
 
     /**
-     * Gets the value of the population property.
+     * Gets the value of the pesel property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getPopulation() {
-        return population;
+    public String getPesel() {
+        return pesel;
     }
 
     /**
-     * Sets the value of the population property.
+     * Sets the value of the pesel property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setPopulation(int value) {
-        this.population = value;
-    }
-
-    /**
-     * Gets the value of the ranking property.
-     * 
-     */
-    public long getRanking() {
-        return ranking;
-    }
-
-    /**
-     * Sets the value of the ranking property.
-     * 
-     */
-    public void setRanking(long value) {
-        this.ranking = value;
+    public void setPesel(String value) {
+        this.pesel = value;
     }
 
 }

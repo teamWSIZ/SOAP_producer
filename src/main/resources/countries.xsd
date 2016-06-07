@@ -17,6 +17,27 @@
         </xs:complexType>
     </xs:element>
 
+    <!--Addition Start-->
+
+    <xs:element name="getStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sss" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Addition End-->
+
+
     <xs:complexType name="country">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
@@ -26,11 +47,19 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="pesel" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:simpleType name="currency">
         <xs:restriction base="xs:string">
             <xs:enumeration value="GBP"/>
             <xs:enumeration value="EUR"/>
             <xs:enumeration value="PLN"/>
+            <xs:enumeration value="RUB"/>
         </xs:restriction>
     </xs:simpleType>
 
